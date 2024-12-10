@@ -18,7 +18,7 @@ fi
 latest_version=$(curl -m 10 -sL "https://api.github.com/repos/prometheus/node_exporter/releases/latest" | awk -F'"' '/tag_name/{gsub(/v/, "", $4); print $4}')
 install() {
 wget https://github.com/prometheus/node_exporter/releases/download/v${latest_version}/node_exporter-${latest_version}.linux-${type}.tar.gz
-wget https://raw.githubusercontent.com/laoshi007/common-scripts/refs/heads/main/node-exporter/pwd.yml
+wget https://raw.githubusercontent.com/laoshi007/scripts/refs/heads/main/node-exporter/pwd.yml
 tar zxvf node_exporter-${latest_version}.linux-${type}.tar.gz
 mkdir -p /etc/node_exporter
 mv pwd.yml /etc/node_exporter
